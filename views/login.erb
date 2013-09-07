@@ -1,0 +1,31 @@
+
+<div class="login_form">
+	<p>Please log in to continue.</p>
+	<form action="/session" method="post">
+		<table class="login_table">
+			<% if @error != nil %>
+				<tr>
+					<td colspan="3" class="login_error">
+						<%= @error %>
+					</td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+				</tr>
+			<% end %>
+			<tr>
+				<td><input type="text" name="email_or_username" placeholder="Email Or Username" tabindex=1 /></td>
+			</tr>
+			<tr>
+				<td><input type="password" name="password" placeholder="Password" tabindex=2 /></td>
+			</tr>
+			<tr>
+				<td class="form_button"><input type="submit" value="Log In" /></td>
+			</tr>
+		</table>
+	</form>
+</div>
+<div class="form_links">
+	<span><a href="/accounts/recover">Reset Password</a></span> |
+	<span><a href="/accounts/create">Create An Account</a></span>
+</div>

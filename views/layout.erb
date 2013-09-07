@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Stormpath-powered Service Portal</title>
+	<link rel="stylesheet" type="text/css" href="/bootstrap.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/font-awesome.min.css" media="screen">
+	<link rel="stylesheet" type="text/css" href="/portal.css" media="screen">
+</head>
+<body>
+	<div class="page">
+		<div class="container">
+
+			<% if is_authenticated? %>
+			<div class="account_bar">
+				<span class="welcome"><% if session[:display_name] %> Logged in as <a href="#"><%= session[:display_name] %></a><% end %></span>
+				<form method="post" action="/session">
+					<input type="submit" value="Log Out">
+					<input type="hidden" value="DELETE" name="_method">
+				</form>
+			</div>
+			<% end %>
+			<div class="content">
+				<div class="logo"><h2>Sample App</h2></div>
+				<p><%= yield %></p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
